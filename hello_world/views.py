@@ -12,10 +12,10 @@ def index():
     output = request.args.get('output')
     if not output:
         output = PLAIN
-        imie = request.args.get('imie')
+    imie = request.args.get('imie')
     if not imie:
         imie = MOJE_IMIE
-    return get_formatted(msg, moje_imie,
+    return get_formatted(msg, MOJE_IMIE,
                          output.lower())
 
 
