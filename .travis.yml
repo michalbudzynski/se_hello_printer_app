@@ -6,3 +6,4 @@ install:
 script:
   - make lint
   - make test
+  - make docker_build
