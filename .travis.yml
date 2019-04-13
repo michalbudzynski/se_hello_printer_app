@@ -8,8 +8,8 @@ script:
   - make test
   - make docker_build
   - make docker_push
+  - make test_xunit
 deploy:
   provider: heroku
   app: mighty-plateau-32198
   api_key: ${HEROKU_API_KEY}
-
