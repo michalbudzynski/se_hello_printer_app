@@ -114,3 +114,7 @@ https://app.statuscake.com
 
 HEROKU
 CLOUD https://dashboard.heroku.com
+
+
+.. image:: https://travis-ci.org/michalbudzynski/se_hello_printer_app.svg?branch=master
+    :target: https://travis-ci.org/michalbudzynski/se_hello_printer_app
