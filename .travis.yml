@@ -10,6 +10,6 @@ script:
   - make docker_push
 deploy:
   provider: heroku
-  app: HELLO_WORLD
+  app: mighty-plateau-32198
   api_key: ${HEROKU_API_KEY}
 
