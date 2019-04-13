@@ -26,3 +26,9 @@ docker_push: docker_build
 	docker logout;
 test_smoke:
 	curl --fail 0.0.0.0:5000
+
+test_cov:
+	PYTHONPATH=. py.test --verbose -s --cov=.
+
+test_xunit:
+	PYTHONPATH=. py.test --verbose -s --cov=. --junit-xml=test_result.xml
