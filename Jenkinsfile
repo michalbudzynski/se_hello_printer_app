@@ -1,7 +1,7 @@
 pipeline {
     agent any
     stages {
-        stage('Deps') {
+      stage('Deps') {
             steps {
 	            sh 'make deps'
         }
