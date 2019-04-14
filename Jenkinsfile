@@ -7,14 +7,16 @@
             }
         }
         stage('Test') {
-            steps {
-                sh 'make test_xunit || true'
-		step($class: 'XunitBuilder',
-			thresholds: [
-				[$class: 'SkippedThreshold', failureThreshold: '0'],
-				[$class: 'FailedThreshold', failureThreshold: '1']
-			tools: [[$class: 'JunitType', pattern: 'test_result.xml']]])
-            }
+
+          steps {
+    sh 'make test_xunit || true'
+    xunit thresholds: [
+        skipped(failureThreshold: '0'),
+        failed(failureThreshold: '1')],
+        tools: [
+            JUnit(deleteOutputFiles: true, failIfNotNew: true, pattern: 'test_results.xml',
+                  skipNoTestFiles: false, stopProcessingIfError: true)
+        ]
         }
         stage('Lint') {
             steps {
@@ -22,4 +24,5 @@
             }
         }
     }
+}
 }
