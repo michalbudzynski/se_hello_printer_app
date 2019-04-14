@@ -16,14 +16,14 @@ pipeline {
                 sh 'make lint'
             }
         }
-	       stage('Testxunit') {
+        stage('Testxunit') {
             steps {
                 sh 'make test_xunit || true'
-		        step([$class: 'XUnitBuilder',
-			thresholds: [
-				[$class: 'SkippedThreshold', failureThreshold: '0'],
-				[$class: 'FailedThreshold', failureThreshold: '1']],
-			tools: [[$class: 'JUnitType', pattern: 'test_results.xml']]])
+                step([$class: 'XUnitBuilder',
+                    thresholds: [
+                        [$class: 'SkippedThreshold', failureThreshold: '0'],
+                        [$class: 'FailedThreshold', failureThreshold: '1']],
+                    tools: [[$class: 'JUnitType', pattern: 'test_results.xml']]])
             }
         }
     }
