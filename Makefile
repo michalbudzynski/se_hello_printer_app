@@ -31,4 +31,4 @@ test_cov:
 	PYTHONPATH=. py.test --verbose -s --cov=.
 
 test_xunit:
-	PYTHONPATH=. py.test --verbose -s --cov=. --junit-xml=test_result.xml
+	PYTHONPATH=. py.test --verbose -s --cov=. --junit-xml=test_results.xml
