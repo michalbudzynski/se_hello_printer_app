@@ -3,12 +3,17 @@ python:
   - "2.7"
 install:
   - make deps
+before_script:
+- wget http://chromedriver.storage.googleapis.com/2.24/chromedriver_linux64.zip
+- unzip chromedriver_linux64.zip -d /home/travis/virtualenv/python2.7.12/bin/
+- export CHROME_BIN=chromium-browser
 script:
   - make lint
   - make test
   - make docker_build
   - make docker_run
   - sleep 3; make test_api
+  - make test_ui
   - make docker_push
   - make test_xunit
 deploy:

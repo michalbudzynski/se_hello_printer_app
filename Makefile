@@ -1,4 +1,4 @@
-.PHONY: test, test_api
+.PHONY: test, test_api, test_ui
 deps:
 	pip install -r requirements.txt; \
 	pip install -r test_requirements.txt
@@ -8,6 +8,8 @@ test:
 	PYTHONPATH= py.test
 test_api:
 	python test_api/check_api.py
+test_ui:
+	python test_ui/test_ui.py
 run:
 	python main.py
 docker_build:
